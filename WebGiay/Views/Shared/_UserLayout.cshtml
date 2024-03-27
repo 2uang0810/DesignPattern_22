@@ -1,0 +1,220 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Shop Giay</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="~/Content/UserLayout/img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/~/Content/UserLayout/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="~/Content/UserLayout/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="~/Content/UserLayout/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Topbar Start -->
+    <div class="container-fluid">
+        <div class="row bg-secondary py-2 px-xl-5">
+            <div class="col-lg-6 d-none d-lg-block">
+                <div class="d-inline-flex align-items-center">
+                    <a class="text-dark" href="">FAQs</a>
+                    <span class="text-muted px-2">|</span>
+                    <a class="text-dark" href="">Help</a>
+                    <span class="text-muted px-2">|</span>
+                    <a class="text-dark" href="">Support</a>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center text-lg-right">
+                <div class="d-inline-flex align-items-center">
+                    <a class="text-dark px-2" href="">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a class="text-dark px-2" href="">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a class="text-dark px-2" href="">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="text-dark px-2" href="">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a class="text-dark pl-2" href="">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-center py-3 px-xl-5">
+            <div class="col-lg-3 d-none d-lg-block">
+                <a href="/Home/Index" class="text-decoration-none">
+                    <h1 class="m-0 display-5 font-weight-semi-bold"><img src="~/Content/images/Logo.jpg" style="height:100px;width:200px" /></h1>
+                </a>
+            </div>
+
+            @using (Html.BeginForm("Search","Home"))
+            {
+                <div class="form-group form-inline">
+
+                    Nhập từ khóa: @Html.TextBox("SearchString", "", new { @class = "form-control" })
+                    <input type="submit" class="btn btn-primary" value="Search" />
+                </div>
+            }
+
+            <div class="col-lg-2 col-6 text-right">
+                @Html.Action("CartPartial", "Cart")
+
+            </div>
+            <div class="col-lg-1 col-6 text-right ">
+                @if (Session["TaiKhoan"] == null)
+                {
+                    <a href="~/User/Login" class="nav-item nav-link">Login</a>
+                }
+                @if (Session["TaiKhoan"] != null)
+                {
+                    <a href="" class="nav-item nav-link">Chao, @Session["NameCus"]</a>
+                }
+
+            </div>
+            <div class="col-lg-1 col-6 text-center ">
+                @if (Session["TaiKhoan"] == null)
+                {
+                    <a href="~/User/Register" class="nav-item nav-link">Register</a>
+                }
+                @if (Session["TaiKhoan"] != null)
+                {
+                    <a href="@Url.Action("Logout","User")" class="nav-item nav-link">Logout</a>
+                }
+
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+    <!-- Navbar Start -->
+    <!-- Navbar End -->
+    <!-- Products Start -->
+    @RenderBody()
+    <!-- Products End -->
+    <!-- Vendor Start -->
+    <div class="container-fluid py-5">
+        <div class="row px-xl-5">
+            <div class="col">
+                <div class="owl-carousel vendor-carousel">
+                    <div class="vendor-item border p-4">
+                        <img src="~/Content/images/logo1.jpg" style="height:100px;width:150px" alt="">
+                    </div>
+                    <div class="vendor-item border p-4">
+                        <img src="~/Content/images/logo2.jpg" style="height:100px;width:150px" alt="">
+                    </div>
+                    <div class="vendor-item border p-4">
+                        <img src="~/Content/images/logo3.jpg" style="height:100px;width:150px" alt="">
+                    </div>
+                    <div class="vendor-item border p-4">
+                        <img src="~/Content/images/logo4.jpg" style="height:100px;width:150px" alt="">
+                    </div>
+                    <div class="vendor-item border p-4">
+                        <img src="~/Content/images/logo5.jpg" style="height:100px;width:150px" alt="">
+                    </div>
+                    <div class="vendor-item border p-4">
+                        <img src="~/Content/images/logo6.jpg" style="height:100px;width:150px" alt="">
+                    </div>
+                    <div class="vendor-item border p-4">
+                        <img src="~/Content/images/logo7.jpg" style="height:100px;width:150px" alt="">
+                    </div>
+                    <div class="vendor-item border p-4">
+                        <img src="~/Content/images/logo8.jpg" style="height:100px;width:150px" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Vendor End -->
+    <!-- Footer Start -->
+    <div class="container-fluid bg-secondary text-dark mt-5 pt-5">
+        <div class="row px-xl-5 pt-5">
+            <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
+                <a href="" class="text-decoration-none">
+                    <h1 class="mb-4 display-5 font-weight-semi-bold"><img src="~/Content/images/Logo.jpg" style="height:100px;width:200px" /></h1>
+                </a>
+                <p>Shop bán giày ra đời từ năm 2015</p>
+                <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>123/321 Phường 3 - Quận 7 - TP.HCM</p>
+                <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>shopabc@gmail.com</p>
+                <p class="mb-0"><i class="fa fa-phone-alt text-primary mr-3"></i>+012 345 67890</p>
+            </div>
+            <div class="col-lg-8 col-md-12">
+                <div class="row">
+                    <div class="col-md-4 mb-5">
+                    </div>
+                    <div class="col-md-4 mb-5">
+                    </div>
+                    <div class="col-md-4 mb-5">
+                        <h5 class="font-weight-bold text-dark mb-4">Newsletter</h5>
+                        <form action="">
+                            <div class="form-group">
+                                <input type="text" class="form-control border-0 py-4" placeholder="Your Name" required="required" />
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control border-0 py-4" placeholder="Your Email"
+                                       required="required" />
+                            </div>
+                            <div>
+                                <button class="btn btn-primary btn-block border-0 py-3" type="submit">Subscribe Now</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row border-top border-light mx-xl-5 py-4">
+            <div class="col-md-6 px-xl-0">
+                <p class="mb-md-0 text-center text-md-left text-dark">
+                    &copy; <a class="text-dark font-weight-semi-bold" href="#">Your Site Name</a>. All Rights Reserved. Designed
+                    by
+                    <a class="text-dark font-weight-semi-bold" href="https://htmlcodex.com">HTML Codex</a><br>
+                    Distributed By <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+                </p>
+            </div>
+            <div class="col-md-6 px-xl-0 text-center text-md-right">
+                <img class="img-fluid" src="~/Content/UserLayout/img/payments.png" alt="">
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up">-</i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/~/Content/UserLayout/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Content/UserLayout/lib/easing/easing.min.js"></script>
+    <script src="~/Content/UserLayout/lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="~/Content/UserLayout/mail/jqBootstrapValidation.min.js"></script>
+    <script src="~/Content/UserLayout/mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="~/Content/UserLayout/js/main.js"></script>
+</body>
+
+</html>

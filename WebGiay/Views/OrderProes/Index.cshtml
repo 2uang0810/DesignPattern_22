@@ -1,0 +1,52 @@
+﻿@model IEnumerable<WebGiay.Models.OrderPro>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 style="text-align:center">Quản lý đơn hàng</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Mã đơn hàng
+        </th>
+        <th>
+            Ngày đặt
+        </th>
+        <th>
+            Địa chỉ
+        </th>
+        <th>
+            Tên khách hàng
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateOrder)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AddressDeliverry)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer.NameCus)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn btn-primary" }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "btn btn-success" }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

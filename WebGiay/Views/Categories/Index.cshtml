@@ -1,0 +1,49 @@
+﻿@model IEnumerable<WebGiay.Models.Category>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 style="text-align:center">Quản lý thương hiệu</h2>
+
+<p>
+    @Html.ActionLink("Thêm thương hiệu", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<div class="">
+    @using (Html.BeginForm("Index", "Categories", FormMethod.Get))
+    {
+        <input type="text" name="_name" />
+        <input type="submit" value="Search" />
+    }
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NameCate)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameCate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-success" }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>

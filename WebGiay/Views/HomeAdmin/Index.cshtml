@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div style="text-align:center">
+    @if (Session["ID"] == null)
+    {
+        <h2>Chào mừng tới trang của Admin đẹp trai</h2>
+        <h4>Hãy <a href="~/LoginUser/Index"> đăng nhập </a> để tiếp tục</h4>
+    }
+    else
+    {
+        <h2>Chào mừng Admin</h2>
+    }
+    </div>
+
+
+
